@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Продвинутый калькулятор</title>
+<link rel="stylesheet" href="style.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>🔥 Мульти-Калькулятор</h1>
+        <button id="themeToggle">🌙</button>
+    </header>
+
+    <input id="display" readonly />
+
+    <div class="modes">
+        <button data-mode="basic" class="active">Обычный</button>
+        <button data-mode="eng">Инженерный</button>
+        <button data-mode="prog">Программист</button>
+        <button data-mode="graph">Графики</button>
+        <button data-mode="history">История</button>
+    </div>
+
+    <div id="panel-basic" class="panel active">
+        <div class="grid">
+            <button onclick="add('7')">7</button>
+            <button onclick="add('8')">8</button>
+            <button onclick="add('9')">9</button>
+            <button class="op" onclick="add('/')">÷</button>
+
+            <button onclick="add('4')">4</button>
+            <button onclick="add('5')">5</button>
+            <button onclick="add('6')">6</button>
+            <button class="op" onclick="add('*')">×</button>
+
+            <button onclick="add('1')">1</button>
+            <button onclick="add('2')">2</button>
+            <button onclick="add('3')">3</button>
+            <button class="op" onclick="add('-')">−</button>
+
+            <button onclick="add('0')">0</button>
+            <button onclick="add('.')">.</button>
+            <button onclick="clearDisplay()">C</button>
+            <button class="op" onclick="add('+')">+</button>
+
+            <button class="eq" onclick="calc()">=</button>
+        </div>
+    </div>
+
+    <div id="panel-eng" class="panel">
+        <div class="grid">
+            <button onclick="add('sin(')">sin</button>
+            <button onclick="add('cos(')">cos</button>
+            <button onclick="add('tan(')">tan</button>
+            <button onclick="add('log(')">log</button>
+
+            <button onclick="add('sqrt(')">√</button>
+            <button onclick="add('(')">(</button>
+            <button onclick="add(')')">)</button>
+            <button onclick="add('^')">^</button>
+
+            <button onclick="add('pi')">π</button>
+            <button onclick="add('e')">e</button>
+            <button onclick="add('!')">n!</button>
+        </div>
+    </div>
+
+    <div id="panel-prog" class="panel">
+        <div class="grid">
+            <button onclick="convert('bin')">BIN</button>
+            <button onclick="convert('oct')">OCT</button>
+            <button onclick="convert('hex')">HEX</button>
+            <button onclick="convert('dec')">DEC</button>
+
+            <button onclick="bit('<<')"><<</button>
+            <button onclick="bit('>>')">>></button>
+            <button onclick="bit('&')">&</button>
+            <button onclick="bit('|')">|</button>
+        </div>
+    </div>
+
+    <div id="panel-graph" class="panel">
+        <input id="funcInput" placeholder="Введите функцию, например sin(x)*3" />
+        <button onclick="plot()">Построить</button>
+        <canvas id="chart"></canvas>
+    </div>
+
+    <div id="panel-history" class="panel">
+        <h2>История:</h2>
+        <ul id="historyList"></ul>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
